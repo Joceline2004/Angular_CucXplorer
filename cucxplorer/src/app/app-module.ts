@@ -3,19 +3,20 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing-module';
 import { App } from './app';
+import { LoginComponent } from './components/login/login';
+import { HomeComponent } from './components/home-page/home-page';
+import { LoadingComponent } from './components/loading/loading';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
-    App
+    App,
+    HomeComponent,
+    LoginComponent,
+    LoadingComponent // <-- MUY IMPORTANTE que esté aquí
   ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule
-  ],
-  providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideClientHydration(withEventReplay()),
-  ],
-  bootstrap: [App]
+  imports: [BrowserModule, AppRoutingModule, CommonModule],
+  providers: [provideBrowserGlobalErrorListeners(), provideClientHydration(withEventReplay())],
+  bootstrap: [App],
 })
-export class AppModule { }
+export class AppModule {}

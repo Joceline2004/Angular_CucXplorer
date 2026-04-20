@@ -1,0 +1,136 @@
+.login-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  font-family: 'Arial', sans-serif;
+  background-image: url('/fondo.png');
+  background-size: cover;
+  background-position: center;
+}
+
+.main-container { 
+  background-color: #fff; 
+  border-radius: 15px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
+  position: relative; 
+  overflow: hidden; 
+  width: 900px; 
+  max-width: 100%; 
+  min-height: 480px; 
+  display: flex; 
+  transition: all 0.6s ease-in-out; 
+} 
+
+.form-container { 
+  width: 50%; 
+  height: 100%; 
+  display: flex; 
+  flex-direction: column; 
+  justify-content: center; 
+padding:20px;
+  z-index: 2;
+  transform: translateX(0);
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1);
+  will-change: transform;
+  
+}
+
+/* OVERLAY CORREGIDO */
+.overlay-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 50%; /* Cambiado de 40% a 50% para cuadrar */
+  height: 100%; /* Cambiado de 400px a 100% para llenar el contenedor */
+  background: #06030f;
+  color: white;
+  display: flex;
+  flex-direction: column; /* Asegura que el contenido interno se apile bien */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 20px;
+  z-index: 9;
+  box-sizing: border-box; /* Importante para que el padding no rompa el ancho */
+  transform: translateX(0);
+  transition: transform 0.7s cubic-bezier(0.25, 0.8, 0.25, 1), background 0.5s ease;
+  will-change: transform;
+}
+
+/* TRANSICIÓN */
+.main-container.right-panel-active {
+  .form-container {
+    transform: translateX(100%);
+  }
+
+  .overlay-container {
+    transform: translateX(-100%);
+    background: #1c1d31c7;
+  }
+}
+
+/* FORM */
+.logo-form img {
+  width: 200px;
+  margin-bottom: -60px;
+
+}
+
+.input-group {
+  margin-bottom: 15px;
+  width: 100%; /* Asegura que el grupo ocupe el ancho disponible */
+
+  input {
+    width: 80%; /* Cambiado de 80% a 100% para mejor alineación dentro del padding */
+    padding: 12px;
+    background: #eee;
+    border: none;
+    border-radius: 5px;
+    box-sizing: border-box;
+  }
+}
+
+button {
+  border-radius: 20px;
+  border: 1px solid #000;
+  background-color: #000;
+  color: #FFFFFF;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: scale(1.03);
+  }
+
+  &:active {
+    transform: scale(0.95);
+  }
+
+  &.ghost {
+    background-color: transparent;
+    border-color: #FFFFFF;
+    margin-top: 20px;
+  }
+}
+
+/* FADE */
+.fade-in {
+  animation: fadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

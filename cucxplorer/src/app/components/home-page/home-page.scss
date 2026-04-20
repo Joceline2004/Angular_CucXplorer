@@ -1,0 +1,113 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&display=swap');
+
+$black: #000000;
+$white: #ffffff;
+$gray-light: #f4f4f4;
+$gray-dark: #2d3436;
+$gray-darkish: #506064;
+$font-main: 'Poppins', sans-serif;
+
+.home-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  width: 100%;
+  font-family: $font-main;
+  background-image: url('/fondo.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+.home-content {
+  background-color: rgba(255, 255, 255, 0.986);
+  width: 650px;
+  height: 650px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.856);
+  animation: fadeIn 0.8s ease-out;
+
+  @media (max-width: 500px) {
+    width: 90vw;
+    height: 90vw;
+    padding: 20px;
+  }
+
+  .logo-container {
+    margin-bottom: -10%;
+    .main-logo {
+      width: 150px;
+      height: auto;
+    }
+  }
+
+  .welcome-text {
+    margin-bottom: 1.5rem;
+    h1 {
+      font-size: 2.8rem;
+      color: $black;
+      margin-bottom: 0.5rem;
+      font-weight: 800;
+      span { color: $gray-darkish; }
+    }
+    p {
+      color: #242424c5;
+      font-size: 1.0rem;
+      font-weight: 600;
+      line-height: 1.4;
+      padding: 0 20px;
+    }
+  }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 80%;
+
+  .btn {
+    padding: 12px 90px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+
+    &:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.2);
+    }
+
+    &.btn-login {
+      background-color: $black;
+      color: $white;
+    }
+
+    &.btn-guest {
+      background-color: $gray-light;
+      color: $black;
+      border: 1px solid $black;
+    }
+  }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; scale: 0.9; }
+  to { opacity: 1; scale: 1; }
+}
