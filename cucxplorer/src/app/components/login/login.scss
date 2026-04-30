@@ -1,3 +1,15 @@
+
+    $AzulPrincipal: #333446;
+    $AzulSuave: #7F8CAA;
+    $AzulFondo: #B8CFCE;
+    $GrisSuave: #EAEFEF;
+    $negro-texto: #000000;
+    $blanco: #ffff;
+
+
+
+
+
 .login-wrapper {
   display: flex;
   justify-content: center;
@@ -10,7 +22,7 @@
 }
 
 .main-container { 
-  background-color: #fff; 
+  background-color: $GrisSuave; 
   border-radius: 15px;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22); 
   position: relative; 
@@ -20,7 +32,11 @@
   min-height: 480px; 
   display: flex; 
   transition: all 0.6s ease-in-out; 
-} 
+
+  // --- ANIMACIÓN DE ENTRADA ---
+  animation: containerEntrance 1s cubic-bezier(0.25, 0.8, 0.25, 1) forwards;
+  backface-visibility: hidden; // Mejora la nitidez durante la animación
+}
 
 .form-container { 
   width: 50%; 
@@ -43,7 +59,7 @@ padding:20px;
   left: 50%;
   width: 50%; /* Cambiado de 40% a 50% para cuadrar */
   height: 100%; /* Cambiado de 400px a 100% para llenar el contenedor */
-  background: #06030f;
+  background: $AzulPrincipal;
   color: white;
   display: flex;
   flex-direction: column; /* Asegura que el contenido interno se apile bien */
@@ -66,7 +82,8 @@ padding:20px;
 
   .overlay-container {
     transform: translateX(-100%);
-    background: #1c1d31c7;
+    background: $AzulSuave;
+    color: $blanco;
   }
 }
 
@@ -84,17 +101,17 @@ padding:20px;
   input {
     width: 80%; /* Cambiado de 80% a 100% para mejor alineación dentro del padding */
     padding: 12px;
-    background: #eee;
+    background: $blanco;
     border: none;
     border-radius: 5px;
     box-sizing: border-box;
   }
 }
 
-button {
+button{
   border-radius: 20px;
   border: 1px solid #000;
-  background-color: #000;
+  background-color: $AzulPrincipal;
   color: #FFFFFF;
   font-size: 12px;
   font-weight: bold;
@@ -103,6 +120,7 @@ button {
   text-transform: uppercase;
   cursor: pointer;
   transition: all 0.2s ease;
+  
 
   &:hover {
     transform: scale(1.03);
@@ -118,19 +136,23 @@ button {
     margin-top: 20px;
   }
 }
+.btn-register{
+  background-color: $AzulSuave;
+ border: $blanco;
+  margin-left:30px;
+}
 
 /* FADE */
 .fade-in {
   animation: fadeIn 0.8s cubic-bezier(0.25, 0.8, 0.25, 1);
 }
-
-@keyframes fadeIn {
+@keyframes containerEntrance {
   from {
     opacity: 0;
-    transform: translateY(10px);
+    transform: translateY(50px) scale(0.95); // Empieza abajo y un poco más pequeño
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translateY(0) scale(1); // Llega a su posición y tamaño real
   }
 }

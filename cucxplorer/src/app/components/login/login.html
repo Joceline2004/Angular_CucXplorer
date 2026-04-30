@@ -2,7 +2,7 @@
   <div class="main-container" [class.right-panel-active]="isForgotMode">
     
     <div class="form-container">
-      <form *ngIf="isForgotMode" class="form-content fade-in">
+      <form *ngIf="isForgotMode" class="form-connpmtent fade-in">
         <div class="logo-form"><img src="/cucXplorer_horizontal.png" alt="Logo"></div>
         <h2>Recuperar Contraseña</h2>
         <p style="margin-bottom: 20px; color: #666;">Introduce tu correo para enviarte las instrucciones.</p>
@@ -21,7 +21,10 @@
         <div class="input-group">
           <input type="password" placeholder="Contraseña">
         </div>
-        <button type="submit">Entrar</button>
+        <button type="submit" >Entrar</button>
+         <button type="button" class="btn btn-register" routerLink="/registro">
+  Registrarse
+</button>
       </form>
     </div>
 
@@ -32,13 +35,13 @@
           <ng-container *ngIf="!isForgotMode">
             <h2>¿Problemas de acceso?</h2>
             <p>Si olvidaste tu contraseña o no puedes entrar, nosotros te ayudamos.</p>
-            <button class="ghost" (click)="toggleMode()">Olvidé mi contraseña</button>
+            <button class="btn ghost" (click)="toggleMode()">Olvidé mi contraseña</button>
           </ng-container>
 
           <ng-container *ngIf="isForgotMode">
             <h2>¿La recordaste?</h2>
             <p>Si ya recordaste tus credenciales, vuelve al inicio de sesión aquí.</p>
-            <button class="ghost" (click)="toggleMode()">Volver al Login</button>
+            <button class="btn ghost" (click)="toggleMode()">Volver al Login</button>
           </ng-container>
 
         </div>

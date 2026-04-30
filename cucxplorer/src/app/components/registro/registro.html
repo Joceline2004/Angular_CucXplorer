@@ -1,0 +1,75 @@
+<div class="registro-wrapper">
+  <div class="registro-container">
+    <div class="header">
+      <h1>Registro</h1>
+    </div>
+
+    <form [formGroup]="registroForm" (ngSubmit)="onSubmit()" class="form-content">
+      
+      <div class="input-group">
+        <label>Nombre</label>
+        <input type="text" formControlName="nombre">
+      </div>
+
+      <div class="input-group">
+        <label>Apellido</label>
+        <input type="text" formControlName="apellido">
+      </div>
+
+      <div class="input-group">
+        <label>Nombre de Usuario</label>
+        <input type="text" formControlName="username">
+        <ul class="requirements">
+          <li [class.valid]="!hasSpaces">No debe contener espacios <span class="icon">✔</span></li>
+          <li [class.valid]="usernameLength">Debe tener al menos 5 letras <span class="icon">✔</span></li>
+          <li [class.error]="!hasNumber">Debe contener al menos un número <span class="icon">✘</span></li>
+        </ul>
+      </div>
+
+      <div class="role-selection">
+        <label>¿Qué eres?</label>
+        <div class="checkbox-group">
+          <label><input type="checkbox" formControlName="isAlumno"> Alumno</label>
+          <label><input type="checkbox" formControlName="isProfesor"> Profesor</label>
+          <label><input type="checkbox" formControlName="isAdministrativo"> Administrativo</label>
+        </div>
+      </div>
+
+      <div class="input-group">
+        <label>Seleccionar carrera o área</label>
+        <select formControlName="carrera">
+          <option value="ing_computacion">Ing. en computación</option>
+          </select>
+      </div>
+
+      <div class="input-group">
+        <label>Correo</label>
+        <input type="email" formControlName="correo">
+      </div>
+
+      <div class="input-group">
+        <label>Contraseña</label>
+        <div class="password-wrapper">
+          <input type="password" formControlName="password" #pwd>
+          <span class="eye-icon">👁</span>
+        </div>
+        <ul class="requirements">
+          <li [class.valid]="pwdLength">Debe tener al menos 8 caracteres <span class="icon">✔</span></li>
+          <li [class.error]="!pwdUpper">Debe incluir al menos una letra mayúscula <span class="icon">✘</span></li>
+          <li [class.valid]="pwdNumber">Debe incluir al menos un número <span class="icon">✔</span></li>
+          <li [class.error]="!pwdSpecial">Debe incluir al menos un carácter especial <span class="icon">✘</span></li>
+        </ul>
+      </div>
+
+      <div class="input-group">
+        <label>Repetir Contraseña</label>
+        <input type="password" formControlName="confirmPassword">
+        <p class="error-text" *ngIf="registroForm.hasError('mismatch')">Las contraseñas deben coincidir</p>
+      </div>
+
+      <button type="submit" class="btn-continue" routerLink="/confirmacion">Continuar</button>
+    </form>
+
+   
+  </div>
+</div>

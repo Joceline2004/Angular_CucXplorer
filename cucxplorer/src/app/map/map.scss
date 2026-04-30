@@ -1,0 +1,107 @@
+$AzulPrincipal: #333446;
+$AzulSuave: #7F8CAA;
+$AzulFondo: #B8CFCE;
+$GrisSuave: #EAEFEF;
+$blanco: #ffffff;
+$font-main: 'Poppins', sans-serif;
+
+.map-container {
+  height: 100vh;
+  width: 100%;
+  position: relative;
+  font-family: $font-main;
+  overflow: hidden;
+}
+
+.map-bg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: url('/assets/img/mapa.jpg') center/cover no-repeat;
+  filter: blur(2px);
+}
+
+.search-bar {
+  position: absolute;
+  top: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  z-index: 2;
+
+  mat-form-field {
+    width: 85%;
+    background: $blanco;
+    border-radius: 30px;
+  }
+}
+
+.panel {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55%;
+  background: $AzulPrincipal;
+  border-radius: 25px 25px 0 0;
+  z-index: 2;
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.3);
+}
+
+.panel-content {
+  padding: 20px;
+  color: $blanco;
+  overflow-y: auto;
+  height: 100%;
+}
+
+h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+.seccion {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+}
+
+.card {
+  background: $GrisSuave;
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  color: $AzulPrincipal;
+  font-size: 12px;
+
+  img {
+    width: 100%;
+    height: 80px;
+    object-fit: cover;
+  }
+
+  span {
+    display: block;
+    padding: 5px;
+  }
+}
+
+.bottom-nav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 55px;
+  background: $AzulPrincipal;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: $blanco;
+  z-index: 3;
+  border-top: 1px solid rgba(255,255,255,0.1);
+}

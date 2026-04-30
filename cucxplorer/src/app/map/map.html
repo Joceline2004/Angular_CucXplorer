@@ -1,0 +1,45 @@
+<div class="map-container">
+
+  <div class="map-bg"></div>
+
+  <div class="search-bar">
+    <mat-form-field appearance="outline">
+      <mat-icon matPrefix>search</mat-icon>
+      <input matInput placeholder="A donde quieres ir?" [(ngModel)]="busqueda">
+    </mat-form-field>
+  </div>
+
+  <div class="panel">
+    <div class="panel-content">
+
+      <h3>Lugares visitados recientemente</h3>
+
+      <div class="grid">
+        <div class="card" *ngFor="let lugar of recientes">
+          <img [src]="lugar.imagen">
+          <span>{{lugar.nombre}}</span>
+        </div>
+      </div>
+
+      <h3 class="seccion">
+        <mat-icon>star_border</mat-icon>
+        Lugares guardados
+      </h3>
+
+      <div class="grid">
+        <div class="card" *ngFor="let lugar of guardados">
+          <img [src]="lugar.imagen">
+          <span>{{lugar.nombre}}</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="bottom-nav">
+    <mat-icon>person</mat-icon>
+    <mat-icon>map</mat-icon>
+    <mat-icon>info</mat-icon>
+  </div>
+
+</div>

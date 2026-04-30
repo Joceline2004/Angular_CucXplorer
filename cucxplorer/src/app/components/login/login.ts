@@ -1,11 +1,13 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
+  standalone: false,
   styleUrls: ['./login.scss'],
-  standalone: false
 })
 export class LoginComponent {
   form: FormGroup;
